@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  app:
+    restart: always
+    build:
+      context: .
+    env_file: .env
+    environment:
+      - ENVIRONMENT=docker
+    volumes:
+      - .wwebjs_auth:/.wwebjs_auth

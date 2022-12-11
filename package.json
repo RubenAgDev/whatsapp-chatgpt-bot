@@ -1,0 +1,22 @@
+{
+  "name": "whatsapp-bot",
+  "version": "1.0.0",
+  "description": "WhatsApp Bot with OpenAI ChatGPT Unofficial API",
+  "main": "bot.js",
+  "type": "module",
+  "scripts": {
+    "start:dev": "nodemon -r dotenv/config bot.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ruben Aguilar",
+  "license": "ISC",
+  "dependencies": {
+    "chatgpt": "^2.0.5",
+    "qrcode-terminal": "^0.12.0",
+    "whatsapp-web.js": "^1.18.4"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3",
+    "nodemon": "^2.0.20"
+  }
+}
