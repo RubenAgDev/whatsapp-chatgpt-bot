@@ -8,6 +8,7 @@ const botOptions = {
 }
 
 if (process.env.ENVIRONMENT == 'docker') {
+  // No GUI env
   botOptions['puppeteer'] = {
 		args: ['--no-sandbox'],
 	}
@@ -22,11 +23,20 @@ bot.on('qr', (qr) => {
   });
 });
 
+bot.on('authenticated', session => {    
+  console.log('Bot is authenticated...')
+});
+
+bot.on('auth_failure', msg => {
+  // Fired if session restore was unsuccessful
+  console.error('Authentication error:', msg);
+});
+
 bot.on('ready', () => {
   console.log('Bot is ready to receive messages.');
 });
 
-bot.on('message', (message) => {
+bot.on('message', message => {
   let markdown = false;
   if(message.body.indexOf('code') >= 0 || message.body.indexOf('código') >= 0) {
     markdown = true;
