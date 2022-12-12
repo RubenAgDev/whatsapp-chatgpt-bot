@@ -1,7 +1,7 @@
 FROM node:16-slim AS builder
 
 RUN apt-get update && \
-  apt install -y \
+  apt-get install -y \
   gconf-service libgbm-dev libasound2 \
   libatk1.0-0 libc6 libcairo2 \
   libcups2 libdbus-1-3 libexpat1 \
