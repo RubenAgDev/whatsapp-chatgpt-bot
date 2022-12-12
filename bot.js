@@ -48,9 +48,9 @@ bot.on('message', message => {
       markdown
     });
 
-    await chatgptAPI.ensureAuth();
     let response = null;
     try {
+      await chatgptAPI.ensureAuth();
       response = await chatgptAPI.sendMessage(message.body);
     } catch (err) {
       console.error(err);
