@@ -1,7 +1,10 @@
 FROM node:16-slim AS builder
 
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
+
 RUN apt-get update && \
-  apt-get install -y \
+  apt-get install -y --no-install-recommends \
   gconf-service libgbm-dev libasound2 \
   libatk1.0-0 libc6 libcairo2 \
   libcups2 libdbus-1-3 libexpat1 \
@@ -14,7 +17,8 @@ RUN apt-get update && \
   libxi6 libxrandr2 libxrender1 libxss1 \
   libxtst6 ca-certificates fonts-liberation \
   libappindicator1 libnss3 lsb-release \
-  xdg-utils wget
+  xdg-utils wget \
+  chromium
 
 WORKDIR /usr/src/app
 
